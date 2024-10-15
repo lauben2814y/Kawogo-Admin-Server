@@ -52,4 +52,26 @@ app.post('/send-all', (req, res) => {
         });
 });
 
+app.post('/send-custom', (req, res) => {
+    const { title, body } = req.body;
+    const message = {
+        notification: {
+            title: title,
+            body: body,
+        },
+        data: {
+            notification_foreground: "true",
+        },
+        topic: 'all' // send to all users
+    };
 
+    admin.messaging().send(message)
+        .then((response) => {
+            console.log('Successfully sent message:', response);
+            res.json({ success: true, messageId: response });
+        })
+        .catch((error) => {
+            console.error('Error sending message:', error);
+            res.status(500).json({ success: false, error: error.message });
+        });
+});
