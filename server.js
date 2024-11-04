@@ -53,7 +53,7 @@ app.post('/send-all', (req, res) => {
 });
 
 app.post('/send-custom', (req, res) => {
-    const { title, body } = req.body;
+    const { title, body, url } = req.body;
     const message = {
         notification: {
             title: title,
@@ -61,6 +61,11 @@ app.post('/send-custom', (req, res) => {
         },
         data: {
             notification_foreground: "true",
+        },
+        android: {
+            notification: {
+                imageUrl: url
+            }
         },
         topic: 'all' // send to all users
     };
