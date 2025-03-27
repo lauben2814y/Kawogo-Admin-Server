@@ -12,7 +12,7 @@ var admin = require("firebase-admin");
 const serviceAccount = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY);
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://wizzybet-5021b-default-rtdb.firebaseio.com"
+    databaseURL: "kawogo-e8ebc.firebasestorage.app"
 });
 app.listen(port, () => {
     console.log(`Kawogo Admin server is listening on port ${port}!`)
