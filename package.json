@@ -1,4 +1,8 @@
 {
+  "name": "kawogo-admin-server",
+  "version": "1.0.0",
+  "description": "FCM admin server for Kawogo app",
+  "main": "server.js",
   "dependencies": {
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
@@ -7,6 +11,10 @@
     "firebase-admin": "^12.6.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
